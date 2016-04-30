@@ -72,8 +72,6 @@ public class JServicesTest {
         serviceName = "sudo";
         result = JServices.getByName(serviceName);
         assertTrue(result != null);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
         
         System.out.println("===============End Testing getByName============");
     }

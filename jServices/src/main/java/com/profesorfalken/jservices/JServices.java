@@ -30,7 +30,7 @@ public class JServices {
     }
     
     public static ServiceInfo getByName(String serviceName) {
-        return null;
+        return ServicesFactory.getService().getByName(serviceName);
     }
     
     public static JServicesResponse stop(String serviceName) {

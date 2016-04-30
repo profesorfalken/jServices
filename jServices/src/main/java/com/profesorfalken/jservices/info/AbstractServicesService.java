@@ -16,6 +16,8 @@
 package com.profesorfalken.jservices.info;
 
 import com.profesorfalken.jservices.model.ServiceInfo;
+import com.profesorfalken.jservices.model.ServiceStatus;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -36,10 +38,41 @@ abstract class AbstractServicesService implements ServicesService {
         return buildInfoFromMap(mapList);
     }
     
+        @Override
+    public ServiceInfo getByName(String serviceName) {
+        if (serviceName == null) {
+            return null;
+        }
+        
+        //No risks. For the moment just a linear search
+        List<Map<String, String>> servicesDataList = parseList(getServicesData());
+        ServiceInfo service = null;
+        
+        for (final Map<String, String> serviceData : servicesDataList) {
+            if (serviceName.equals(serviceData.get("name"))) {
+                service = new ServiceInfo();
+                service.setName(serviceData.get("name"));
+                service.setStatus(ServiceStatus.valueOf(serviceData.get("status")));
+            }
+        }
+        
+        return service;
+    }
+    
     protected abstract String getServicesData();
     
     protected abstract List<Map<String, String>> parseList(String rawData);
 
-    protected abstract List<ServiceInfo> buildInfoFromMap(List<Map<String, String>> mapList);
+    protected List<ServiceInfo> buildInfoFromMap(List<Map<String, String>> mapList) {
+        List<ServiceInfo> servicesList = new ArrayList<>();
+        for (final Map<String, String> element : mapList) {
+            ServiceInfo serviceItem = new ServiceInfo();
+            serviceItem.setName(element.get("name"));
+            serviceItem.setStatus(ServiceStatus.valueOf(element.get("status")));
+            servicesList.add(serviceItem);
+        }
+        
+        return servicesList;
+    }
 
 }
