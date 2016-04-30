@@ -13,31 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.profesorfalken.jservices;
+package com.profesorfalken.jservices.info;
 
-import com.profesorfalken.jservices.info.ServicesFactory;
-import com.profesorfalken.jservices.model.JServicesResponse;
 import com.profesorfalken.jservices.model.ServiceInfo;
 import java.util.List;
+import java.util.Map;
 
 /**
+ * Info related with processes
  *
- * @author javier
+ * @author Javier Garcia Alonso
  */
-public class JServices {
-    public static List<ServiceInfo> listAll() {
-        return ServicesFactory.getService().getList();
+abstract class AbstractServicesService implements ServicesService {
+
+
+    @Override
+    public List<ServiceInfo> getList() {
+        String rawData = getServicesData();
+
+        List<Map<String, String>> mapList = parseList(rawData);
+
+        return buildInfoFromMap(mapList);
     }
     
-    public static ServiceInfo getByName(String serviceName) {
-        return null;
-    }
+    protected abstract String getServicesData();
     
-    public static JServicesResponse stop(String serviceName) {
-        return null;
-    }
-    
-    public static JServicesResponse start(String serviceName) {
-        return null;
-    }
+    protected abstract List<Map<String, String>> parseList(String rawData);
+
+    protected abstract List<ServiceInfo> buildInfoFromMap(List<Map<String, String>> mapList);
+
 }

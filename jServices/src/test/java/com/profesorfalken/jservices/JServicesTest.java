@@ -45,12 +45,17 @@ public class JServicesTest {
      */
     @Test
     public void testListAll() {
-        System.out.println("listAll");
-        List<ServiceInfo> expResult = null;
+        System.out.println("===============Testing listAll============");
+        
         List<ServiceInfo> result = JServices.listAll();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        //check that the command has worked
+        assertTrue(result != null);
+        
+        //check that if has loaded several services
+        assertTrue(result.size() > 15);        
+        
+        System.out.println("===============End Testing listAll============");
     }
 
     /**
@@ -58,13 +63,19 @@ public class JServicesTest {
      */
     @Test
     public void testGetByName() {
-        System.out.println("getByName");
-        String serviceName = "";
-        ServiceInfo expResult = null;
+        System.out.println("===============Testing getByName============");
+        
+        String serviceName = "azerty";
         ServiceInfo result = JServices.getByName(serviceName);
-        assertEquals(expResult, result);
+        assertTrue(result == null);
+        
+        serviceName = "sudo";
+        result = JServices.getByName(serviceName);
+        assertTrue(result != null);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+        
+        System.out.println("===============End Testing getByName============");
     }
 
     /**
@@ -72,13 +83,16 @@ public class JServicesTest {
      */
     @Test
     public void testStop() {
-        System.out.println("stop");
+        System.out.println("===============Testing stop============");
+        
         String serviceName = "";
         JServicesResponse expResult = null;
         JServicesResponse result = JServices.stop(serviceName);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+        
+        System.out.println("===============End Testing stop============");
     }
 
     /**
@@ -86,13 +100,16 @@ public class JServicesTest {
      */
     @Test
     public void testStart() {
-        System.out.println("start");
+        System.out.println("===============Testing start============");
+        
         String serviceName = "";
         JServicesResponse expResult = null;
         JServicesResponse result = JServices.start(serviceName);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+        
+        System.out.println("===============End Testing start============");
     }
     
 }
