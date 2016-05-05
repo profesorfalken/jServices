@@ -89,7 +89,7 @@ public class JServicesTest {
     public void testStop() {
         System.out.println("===============Testing stop============");
         
-        String serviceName = "samba";
+        String serviceName = "test";
         JServicesResponse result = JServices.stop(serviceName);
         assertTrue(result.isSuccess());
         
@@ -103,7 +103,7 @@ public class JServicesTest {
     public void testStart() {
         System.out.println("===============Testing start============");
         
-        String serviceName = "samba";
+        String serviceName = "test";
         JServicesResponse result = JServices.start(serviceName);
         assertTrue(result.isSuccess());
         

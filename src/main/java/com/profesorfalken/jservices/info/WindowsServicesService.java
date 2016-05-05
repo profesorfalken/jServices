@@ -7,6 +7,7 @@ package com.profesorfalken.jservices.info;
 
 import com.profesorfalken.jservices.model.JServicesResponse;
 import com.profesorfalken.jservices.model.ServiceStatus;
+import com.profesorfalken.jservices.util.ServicesUtils;
 import com.profesorfalken.wmi4java.WMI4Java;
 import com.profesorfalken.wmi4java.WMIClass;
 import java.util.ArrayList;
@@ -19,6 +20,10 @@ import java.util.Map;
  * @author javier
  */
 public class WindowsServicesService extends AbstractServicesService {
+    private static final String SERVICE_COMMAND = "net";
+    private static final String START_PARAM = "start";
+    private static final String STOP_PARAM = "stop";
+    
     private static final String LINE_BREAK_REGEX = "\\r?\\n";
 
     @Override
@@ -54,12 +59,20 @@ public class WindowsServicesService extends AbstractServicesService {
 
     @Override
     public JServicesResponse start(String serviceName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JServicesResponse response = new JServicesResponse();
+        if (ServicesUtils.executeCommandAndGetCode(SERVICE_COMMAND, START_PARAM, serviceName) == 0) {
+            response.setSuccess(true);
+        }
+        return response;
     }
 
     @Override
     public JServicesResponse stop(String serviceName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JServicesResponse response = new JServicesResponse();
+        if (ServicesUtils.executeCommandAndGetCode(SERVICE_COMMAND, STOP_PARAM, serviceName) == 0) {
+            response.setSuccess(true);
+        }
+        return response;
     }
     
     private ServiceStatus getStatus(String state) {
