@@ -7,6 +7,7 @@ package com.profesorfalken.jservices;
 
 import com.profesorfalken.jservices.model.JServicesResponse;
 import com.profesorfalken.jservices.model.ServiceInfo;
+import com.profesorfalken.jservices.util.OSDetector;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -69,10 +70,14 @@ public class JServicesTest {
         ServiceInfo result = JServices.getByName(serviceName);
         assertTrue(result == null);
         
-        serviceName = "sudo";
+        if(OSDetector.isWindows()) {
+            serviceName = "Messenger";
+        } else {
+            serviceName = "sudo";
+        }
         result = JServices.getByName(serviceName);
         assertTrue(result != null);
-        assertTrue("sudo".equals(result.getName()));
+        assertTrue(serviceName.equals(result.getName()));
         
         System.out.println("===============End Testing getByName============");
     }
