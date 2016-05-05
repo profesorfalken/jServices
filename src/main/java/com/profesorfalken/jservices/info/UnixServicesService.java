@@ -23,8 +23,8 @@ public class UnixServicesService extends AbstractServicesService {
 
     private static final String SERVICE_COMMAND = "service";
     private static final String LISTALL_PARAM = "--status-all";
-    private static final String START_PARAM = "--status-all";
-    private static final String STOP_PARAM = "--status-all";
+    private static final String START_PARAM = "start";
+    private static final String STOP_PARAM = "stop";
 
     private static final String LINE_BREAK_PATTERN = "\\r?\\n";
 
