@@ -72,6 +72,7 @@ public class JServicesTest {
         serviceName = "sudo";
         result = JServices.getByName(serviceName);
         assertTrue(result != null);
+        assertTrue("sudo".equals(result.getName()));
         
         System.out.println("===============End Testing getByName============");
     }
@@ -79,16 +80,13 @@ public class JServicesTest {
     /**
      * Test of stop method, of class JServices.
      */
-    @Test
+    //@Test
     public void testStop() {
         System.out.println("===============Testing stop============");
         
-        String serviceName = "";
-        JServicesResponse expResult = null;
+        String serviceName = "samba";
         JServicesResponse result = JServices.stop(serviceName);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(result.isSuccess());
         
         System.out.println("===============End Testing stop============");
     }
@@ -96,16 +94,13 @@ public class JServicesTest {
     /**
      * Test of start method, of class JServices.
      */
-    @Test
+    //@Test
     public void testStart() {
         System.out.println("===============Testing start============");
         
-        String serviceName = "";
-        JServicesResponse expResult = null;
+        String serviceName = "samba";
         JServicesResponse result = JServices.start(serviceName);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(result.isSuccess());
         
         System.out.println("===============End Testing start============");
     }

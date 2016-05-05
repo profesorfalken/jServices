@@ -34,10 +34,10 @@ public class JServices {
     }
     
     public static JServicesResponse stop(String serviceName) {
-        return null;
+        return ServicesFactory.getService().stop(serviceName);
     }
     
     public static JServicesResponse start(String serviceName) {
-        return null;
+        return ServicesFactory.getService().start(serviceName);
     }
 }

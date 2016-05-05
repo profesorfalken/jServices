@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="2" name="com.profesorfalken.jservices.JServicesTest" time="1.82" errors="0" skipped="0">
+<testsuite tests="4" failures="2" name="com.profesorfalken.jservices.JServicesTest" time="1.944" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="test" value="com.profesorfalken.jservices.JServicesTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/javier/NetBeansProjects/jServices/jServices"/>
+    <property name="user.dir" value="/home/javier/NetBeansProjects/jServices"/>
     <property name="java.runtime.version" value="1.8.0_77-b03"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
@@ -60,12 +60,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.profesorfalken.jservices.JServicesTest" name="testListAll" time="0.668"/>
-  <testcase classname="com.profesorfalken.jservices.JServicesTest" name="testGetByName" time="1.057"/>
-  <testcase classname="com.profesorfalken.jservices.JServicesTest" name="testStop" time="0.012">
-    <failure message="The test case is a prototype." type="java.lang.AssertionError">java.lang.AssertionError: The test case is a prototype.
-	at org.junit.Assert.fail(Assert.java:93)
-	at com.profesorfalken.jservices.JServicesTest.testStop(JServicesTest.java:91)
+  <testcase classname="com.profesorfalken.jservices.JServicesTest" name="testGetByName" time="1.27"/>
+  <testcase classname="com.profesorfalken.jservices.JServicesTest" name="testStop" time="0.019">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:92)
+	at org.junit.Assert.assertTrue(Assert.java:43)
+	at org.junit.Assert.assertTrue(Assert.java:54)
+	at com.profesorfalken.jservices.JServicesTest.testStop(JServicesTest.java:89)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -103,10 +104,12 @@
     <system-out>===============Testing stop============
 </system-out>
   </testcase>
-  <testcase classname="com.profesorfalken.jservices.JServicesTest" name="testStart" time="0.001">
-    <failure message="The test case is a prototype." type="java.lang.AssertionError">java.lang.AssertionError: The test case is a prototype.
-	at org.junit.Assert.fail(Assert.java:93)
-	at com.profesorfalken.jservices.JServicesTest.testStart(JServicesTest.java:108)
+  <testcase classname="com.profesorfalken.jservices.JServicesTest" name="testStart" time="0.017">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:92)
+	at org.junit.Assert.assertTrue(Assert.java:43)
+	at org.junit.Assert.assertTrue(Assert.java:54)
+	at com.profesorfalken.jservices.JServicesTest.testStart(JServicesTest.java:103)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -144,4 +147,5 @@
     <system-out>===============Testing start============
 </system-out>
   </testcase>
+  <testcase classname="com.profesorfalken.jservices.JServicesTest" name="testListAll" time="0.551"/>
 </testsuite>

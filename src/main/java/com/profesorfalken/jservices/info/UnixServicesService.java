@@ -6,7 +6,6 @@
 package com.profesorfalken.jservices.info;
 
 import com.profesorfalken.jservices.model.JServicesResponse;
-import com.profesorfalken.jservices.model.ServiceInfo;
 import com.profesorfalken.jservices.model.ServiceStatus;
 import com.profesorfalken.jservices.util.ServicesUtils;
 import java.util.ArrayList;
@@ -24,6 +23,8 @@ public class UnixServicesService extends AbstractServicesService {
 
     private static final String SERVICE_COMMAND = "service";
     private static final String LISTALL_PARAM = "--status-all";
+    private static final String START_PARAM = "--status-all";
+    private static final String STOP_PARAM = "--status-all";
 
     private static final String LINE_BREAK_PATTERN = "\\r?\\n";
 
@@ -57,12 +58,20 @@ public class UnixServicesService extends AbstractServicesService {
 
     @Override
     public JServicesResponse start(String serviceName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JServicesResponse response = new JServicesResponse();
+        if (ServicesUtils.executeCommandAndGetCode(SERVICE_COMMAND, serviceName, START_PARAM) == 0) {
+            response.setSuccess(true);
+        }
+        return response;
     }
 
     @Override
     public JServicesResponse stop(String serviceName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JServicesResponse response = new JServicesResponse();
+        if (ServicesUtils.executeCommandAndGetCode(SERVICE_COMMAND, serviceName, STOP_PARAM) == 0) {
+            response.setSuccess(true);
+        }
+        return response;
     }
 
     private ServiceStatus getStatus(String symbol) {
