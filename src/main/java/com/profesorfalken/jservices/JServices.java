@@ -21,8 +21,9 @@ import com.profesorfalken.jservices.model.ServiceInfo;
 import java.util.List;
 
 /**
- *
- * @author javier
+ * Static class that gives access to Services details.
+ * 
+ * @author Javier Garcia Alonso
  */
 public class JServices {
     public static List<ServiceInfo> listAll() {

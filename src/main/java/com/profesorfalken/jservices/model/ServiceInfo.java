@@ -17,7 +17,7 @@ package com.profesorfalken.jservices.model;
 
 /**
  *
- * @author javier
+ * @author Javier Garcia Alonso
  */
 public class ServiceInfo {
     private String name;
