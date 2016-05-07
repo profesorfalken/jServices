@@ -26,6 +26,11 @@ import java.util.List;
  * @author Javier Garcia Alonso
  */
 public class JServices {
+    
+    //Hide constructor
+    private JServices() {
+    }
+    
     public static List<ServiceInfo> listAll() {
         return ServicesFactory.getService().getList();
     }

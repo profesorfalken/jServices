@@ -47,7 +47,6 @@ public class UnixServicesService extends AbstractServicesService {
 
     @Override
     protected List<Map<String, String>> parseList(String rawData) {
-        System.out.println(rawData);
         List<Map<String, String>> servicesDataList = new ArrayList<>();
 
         String[] dataStringLines = rawData.split(LINE_BREAK_PATTERN);
@@ -84,7 +83,7 @@ public class UnixServicesService extends AbstractServicesService {
         return response;
     }
 
-    private ServiceStatus getStatus(String symbol) {
+    private static ServiceStatus getStatus(String symbol) {
         if (symbol == null) {
             return ServiceStatus.UNKNOWN;
         }

@@ -53,7 +53,8 @@ public class WindowsServicesService extends AbstractServicesService {
                 serviceData = new HashMap<>();
             } else {
                 String[] dataStringInfo = dataLine.split(":", 2);
-                if (null != dataStringInfo[0].trim()) switch (dataStringInfo[0].trim()) {
+                if (null != dataStringInfo[0]) {
+                    switch (dataStringInfo[0].trim()) {
                     case "Name":
                         serviceData.put("name", dataStringInfo[1].trim());
                         break;
@@ -61,6 +62,8 @@ public class WindowsServicesService extends AbstractServicesService {
                         serviceData.put("status", getStatus(dataStringInfo[1].trim()).name());
                         servicesDataList.add(serviceData);
                         break;
+                    default:
+                    }
                 }
             }                 
         }
@@ -85,7 +88,7 @@ public class WindowsServicesService extends AbstractServicesService {
         return response;
     }
     
-    private ServiceStatus getStatus(String state) {
+    private static ServiceStatus getStatus(String state) {
         if (state == null) {
             return ServiceStatus.UNKNOWN;
         }
