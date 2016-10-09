@@ -83,7 +83,7 @@ public class JServicesTest {
         if(OSDetector.isWindows()) {
             serviceName = "Messenger";
         } else {
-            serviceName = "sudo";
+            serviceName = "cron";
         }
         result = JServices.getByName(serviceName);
         assertTrue(result != null);
